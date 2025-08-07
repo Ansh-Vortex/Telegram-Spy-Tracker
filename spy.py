@@ -176,7 +176,7 @@ class PingHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
         self.end_headers()
-        self.wfile.write(b"✅ Telegram Spy Tracker bot is running on Render.")
+        self.wfile.write("✅ Telegram Spy Tracker bot is running on Render.".encode())
 
 def run_http_server():
     port = int(os.environ.get("PORT", 10000))
@@ -186,4 +186,5 @@ def run_http_server():
 # --- RUN EVERYTHING ---
 if __name__ == "__main__":
     threading.Thread(target=run_http_server).start()
+
     main()
